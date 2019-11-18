@@ -1,9 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
+    <title>Tamaguchi</title>
   </head>
   <body>
-
+    <form class="form">
+   <div class="jumbotron">
+     <div class="container">
+       <h1>Gamatochi</h1>
+       <br>
+       <h3>Have you always wanted a beautiful baby GamaTochi of your own?</h3>
+     </div>
+   </div>
+   <div class="container intro-form">
+     <div class="form-group">
+       <div class="row">
+         <div class="col-md-4">
+           <label>Give your Tamaguchi a name:</label>
+           <input id="name" class="form-control" type="text" name="name" placeholder="Bob">
+         </div>
+       </div>
+     </div>
+     <button type="submit" class="btn btn-outline-primary" value="start">Let's Grow!</button>
+   </div>
+   <div class="container gameBoard">
+     <div class="row">
+       <div class="card bg-primary text-white gameboard">
+         <div class="card-header">
+           <h2 id="name-display"></h2>
+           <h3 id="player-1-total-score"></h3>
+         </div>
+         <div class="card-body">
+           <h3 class="card-text" id="player-1-dice"></h3>
+           <h5 class="card-title">Roll Score: <span id="player1TurnScore"></span></h5>
+           <button type="button" id="player-1-roll" class="btn btn-success">Roll</button>
+           <button type="button" id="player-1-hold" class="btn btn-warning">Hold</button>
+           <p class="card-text" id="player-1-last-roll"></p>
+         </div>
+       </div>
+     </div>
+     <button type="reset" class="btn btn-outline-primary reset" value="Reset" onClick="window.location.reload()">Play Again</button>
+   </div>
+ </form>
   </body>
 </html>
