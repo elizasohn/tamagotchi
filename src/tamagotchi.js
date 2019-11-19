@@ -15,7 +15,7 @@ export class Tamagotchi {
     setInterval(() => {
       this.foodLevel--;
       console.log(this.foodLevel)
-    }, 1000);
+    }, 10000);
   }
 
   starvedToDeath() {

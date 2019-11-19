@@ -28,7 +28,10 @@ $(document).ready(function() {
 function StatTrack(gomatochi) {
   let timer = setInterval(() => {
     $("#hungerScore").text(gomatochi.foodLevel);
-  }, 1000);
+    $("#poopScore").text(gomatochi.poopLevel);
+    $("#loveScore").text(gomatochi.loveLevel);
+    $("#restScore").text(gomatochi.restLevel);
+  }, 500);
 }
 
 
