@@ -5,6 +5,31 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import { Tamagotchi } from './tamagotchi.js';
 
+
+$(document).ready(function() {
+  $('#cartoonAnimal').click(function() {
+    const animal= $('#animal').val();
+    $('#animal').val("");
+
+    let request = new XMLHttpRequest();
+    const url = `https://api.giphy.com/v1/gifs/translate?api_key=${process.env.API_KEY}&s=cartoon ${animal}`;
+    request.onreadystatechange = function() {
+      if (this.readyState === 4 && this.status === 200) {
+        const response = JSON.parse(this.responseText);
+        getElements(response);
+      }
+    }
+
+    request.open("GET", url, true);
+    request.send();
+
+   const getElements = function(response) {
+      $('.showImage').append(`<img src="${response.data.images.original.url}">`);
+    }
+  });
+});
+
+
 $(document).ready(function() {
   $(".form").submit(function(event) {
     event.preventDefault();
@@ -49,10 +74,57 @@ function StatTrack(gomatochi) {
       $(".gameBoard").hide();
       $("#died").show();
     }
-    
+    if (gomatochi.foodLevel == 10) {
+      $(".rect8").hide();
+      $(".rect6").show();
+      $(".rect4").hide();
+      $(".rect2").hide();
+      $(".rect").hide();
+      $(".rect10").show();
+    } else if (gomatochi.foodLevel == 8) {
+      $(".rect10").hide();
+      $(".rect8").show();
+    } else if (gomatochi.foodLevel == 6) {
+      $(".rect8").hide();
+      $(".rect6").show();
+    } else if (gomatochi.foodLevel == 4) {
+      $(".rect6").hide();
+      $(".rect4").show();
+    } else if (gomatochi.foodLevel == 2) {
+      $(".rect4").hide();
+      $(".rect2").show();
+    } else {
+      $(".rect2").hide();
+      $(".rect").show();
+    };
+
+    if (gomatochi.foodLevel == 10) {
+      $(".rect8").hide();
+      $(".rect6").show();
+      $(".rect4").hide();
+      $(".rect2").hide();
+      $(".rect").hide();
+      $(".rect10").show();
+    } else if (gomatochi.foodLevel == 8) {
+      $(".rect10").hide();
+      $(".rect8").show();
+    } else if (gomatochi.foodLevel == 6) {
+      $(".rect8").hide();
+      $(".rect6").show();
+    } else if (gomatochi.foodLevel == 4) {
+      $(".rect6").hide();
+      $(".rect4").show();
+    } else if (gomatochi.foodLevel == 2) {
+      $(".rect4").hide();
+      $(".rect2").show();
+    } else {
+      $(".rect2").hide();
+      $(".rect").show();
+    };
+
+
   }, 500);
 }
-
 
 
 
