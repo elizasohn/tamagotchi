@@ -9,11 +9,13 @@ export class Tamagotchi {
     this.restLevel = 10;
   }
 
+
   //hunger--
   setHunger() {
     setInterval(() => {
       this.foodLevel--;
-    }, 10000);
+      console.log(this.foodLevel)
+    }, 1000);
   }
 
   starvedToDeath() {
@@ -64,7 +66,7 @@ export class Tamagotchi {
   unlovedToDeath() {
     if (this.loveLevel <= 0) {
       alert(`${this.name} is dead! We're calling CPS!`);
-      return true
+      return true;
     } else if (this.loveLevel > 0 && this.loveLevel <= 10) {
       alert(`${this.name} is feeling neglected! Time to show some love!`);
       return false;
@@ -87,7 +89,7 @@ export class Tamagotchi {
   tiredToDeath() {
     if (this.restLevel <= 0) {
       alert(`${this.name} is dead! They died of exhaustion!`);
-      return true
+      return true;
     } else if (this.restLevel > 0 && this.restLevel <= 4) {
       alert(`${this.name} is feeling sleepy! Time to put them to bed!`);
       return false;
