@@ -89,8 +89,8 @@ describe('Bob', () => {
   });
   //
   // test('should get very hungry if 10 seconds pass without feeding', function() {
-  //   jest.advanceTimersByTime(100001);
-  //   expect(bob.starvedToDeath()).toEqual(true);
-  // });
+    //   jest.advanceTimersByTime(100001);
+    //   expect(bob.starvedToDeath()).toEqual(true);
+    // });
 
-});
+  });

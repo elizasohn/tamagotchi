@@ -8,29 +8,48 @@ import { Tamagotchi } from './tamagotchi.js';
 $(document).ready(function() {
   $(".form").submit(function(event) {
     event.preventDefault();
-    var name= $("input#name").val();
-    var gomatochi = new Tamagotchi (name);
+    let name= $("input#name").val();
+    let gomatochi = new Tamagotchi (name);
+
     StatTrack(gomatochi);
     gomatochi.setHunger();
-    gomatochi.starvedToDeath();
+    gomatochi.setBathroom();
+    gomatochi.setLove();
+    gomatochi.setRest();
+    gomatochi.setEvolve();
+    gomatochi.isDead();
+    gomatochi.warning();
 
-    $("#gamatochiName").text(name);
+    $(".gamatochiName").text(name);
     $(".gameBoard").show();
     $(".form").hide();
-
 
     $("#feed").click(function(){
       gomatochi.feed();
     });
-
+    $("#clean").click(function(){
+      gomatochi.clean();
+    });
+    $("#love").click(function(){
+      gomatochi.love();
+    });
+    $("#rest").click(function(){
+      gomatochi.rest();
+    });
 
 
 function StatTrack(gomatochi) {
-  let timer = setInterval(() => {
+  setInterval(() => {
     $("#hungerScore").text(gomatochi.foodLevel);
     $("#poopScore").text(gomatochi.poopLevel);
     $("#loveScore").text(gomatochi.loveLevel);
     $("#restScore").text(gomatochi.restLevel);
+    $("#warnings").text(gomatochi.warning());
+    if (gomatochi.isDead() === true) {
+      $(".gameBoard").hide();
+      $("#died").show();
+    }
+    
   }, 500);
 }
 

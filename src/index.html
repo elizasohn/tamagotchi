@@ -1,41 +1,73 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Tamaguchi</title>
-  </head>
-  <body>
-    <form class="form">
-   <div class="jumbotron">
-     <div class="container">
-       <h1>Gamatochi</h1>
-       <br>
-       <h3>Have you always wanted a beautiful baby GamaTochi of your own?</h3>
-     </div>
-   </div>
-   <div class="container intro-form">
-       <div class="row">
-         <div class="col-md-4">
-           <label>Give your Tamaguchi a name:</label>
-           <input id="name" class="form-control" type="text" name="name" placeholder="Bob">
-         </div>
-       </div>
-     <button type="submit" class="btn btn-outline-primary" value="start">Let's Grow!</button>
-   </div>
-   </form>
-   <div class="container gameBoard">
-     <div class="row">
-       <div class="card bg-primary text-white gameboard">
-         <div class="card-header">
-           <h2 id="gamatochiName"></h2>
-         </div>
-         <div class="card-body">
-           <h3 class="card-text" id="hungerScore"></h3>
-           <button type="button" id="feed" class="btn btn-success">Feed</button>
-         </div>
-       </div>
-     </div>
-     <button type="reset" class="btn btn-outline-primary reset" value="Reset" onClick="window.location.reload()">Play Again</button>
-   </div>
-
-  </body>
+<head>
+  <title>Gamatochi</title>
+</head>
+<body>
+  <form class="form">
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Gamatochi</h1>
+        <br>
+        <h3>Have you always wanted a beautiful baby GamaTochi of your own?</h3>
+      </div>
+    </div>
+    <div class="container intro-form">
+      <div class="row">
+        <div class="col-md-4">
+          <label>Give your GamaTochi a name:</label>
+          <input id="name" class="form-control" type="text" name="name" placeholder="Bob">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-outline-primary" value="start">Let's Grow!</button>
+    </div>
+  </form>
+  <div class="container gameBoard">
+    <h2 class="gamatochiName"></h2>
+    <h4 id="warnings"></h4>
+    <div class="row">
+      <div class="card col-md-3 bg-warning text-white">
+        <div class="card-header">
+          <h2>Hunger Level</h2>
+        </div>
+        <div class="card-body">
+          <div class="rectangle"></div>
+          <h3 class="card-text" id="hungerScore"></h3>
+          <button type="button" id="feed" class="btn btn-light">Feed</button>
+        </div>
+      </div>
+      <div class="card col-md-3 bg-success text-white">
+        <div class="card-header">
+          <h2>Clean Level</h2>
+        </div>
+        <div class="card-body">
+          <h3 class="card-text" id="poopScore"></h3>
+          <button type="button" id="clean" class="btn btn-light">Clean</button>
+        </div>
+      </div>
+      <div class="card col-md-3 bg-danger text-white">
+        <div class="card-header">
+          <h2>Love Level</h2>
+        </div>
+        <div class="card-body">
+          <h3 class="card-text" id="loveScore"></h3>
+          <button type="button" id="love" class="btn btn-light">Love</button>
+        </div>
+      </div>
+      <div class="card col-md-3 bg-primary text-white">
+        <div class="card-header">
+          <h2>Rest Level</h2>
+        </div>
+        <div class="card-body">
+          <h3 class="card-text" id="restScore"></h3>
+          <button type="button" id="rest" class="btn btn-light">Rest</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="died">
+    <h2>Uh oh.... <span class="gamatochiName"></span> is Dead!!! You are a horrible gomatochi parent.</h2>
+    <button type="reset" class="btn btn-outline-primary reset" value="Reset" onClick="window.location.reload()">Play Again</button>
+  </div>
+</body>
 </html>

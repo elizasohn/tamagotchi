@@ -4,30 +4,40 @@ export class Tamagotchi {
     this.name = name,
     this.ageLevel = 1;
     this.foodLevel = 10,
-    this.poopLevel = 0,
-    this.loveLevel = 10;
-    this.restLevel = 10;
+    this.poopLevel = 10,
+    this.loveLevel = 10,
+    this.restLevel = 10,
+    this.warningLevel = "";
   }
 
+  //death check --
+  isDead() {
+    if (this.foodLevel <= 0 || this.poopLevel <= 0 || this.loveLevel <= 0 || this.restLevel <= 0){
+      return true;
+    } else {
+      return false;
+    }
+  }
 
+  //warnings--
+  warning() {
+    if (this.foodLevel == 8) {
+      this.warningLevel = `I'm hungry!`
+    } else if (this.poopLevel == 5){
+      this.warningLevel = `I'm dirty!`
+    } else if (this.loveLevel == 5 ){
+      this.warningLevel = `I'm lonely!`
+    } else if (this.restLevel == 5){
+      this.warningLevel = `I'm sleepy!`
+    }
+    return this.warningLevel;
+  }
   //hunger--
   setHunger() {
     setInterval(() => {
       this.foodLevel--;
       console.log(this.foodLevel)
     }, 10000);
-  }
-
-  starvedToDeath() {
-    if (this.foodLevel <= 0) {
-      alert(`${this.name} is dead! You are the worst parent ever!`);
-      return true;
-    } else if (this.foodLevel > 0 && this.foodLevel <= 4) {
-      alert(`${this.name} is getting hungry! Time to feed them.`);
-      return false;
-    } else {
-      return false;
-    }
   }
 
   feed() {
@@ -37,23 +47,12 @@ export class Tamagotchi {
   //bathroom--
   setBathroom() {
     setInterval(() => {
-      this.poopLevel++;
+      this.poopLevel--;
     }, 2000);
   }
 
-  poopedToDeath() {
-    if (this.poopLevel >= 4) {
-      alert(`${this.name} is dead! Check your parenting skills!`);
-      return true;
-    } else if (this.poopLevel > 0 && this.poopLevel <= 2) {
-      alert(`${this.name} is getting dirty! Time to clean up!`);
-      return false;
-    } else {
-      return false;
-    }
-  }
   clean() {
-    this.poopLevel = 0;
+    this.poopLevel = 10;
   }
 
   //love--
@@ -63,17 +62,6 @@ export class Tamagotchi {
     }, 4000);
   }
 
-  unlovedToDeath() {
-    if (this.loveLevel <= 0) {
-      alert(`${this.name} is dead! We're calling CPS!`);
-      return true;
-    } else if (this.loveLevel > 0 && this.loveLevel <= 10) {
-      alert(`${this.name} is feeling neglected! Time to show some love!`);
-      return false;
-    } else {
-      return false;
-    }
-  }
 
   love() {
     this.loveLevel = 10;
