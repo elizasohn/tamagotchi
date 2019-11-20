@@ -7,7 +7,7 @@ export class Tamagotchi {
     this.poopLevel = 10,
     this.loveLevel = 10,
     this.restLevel = 10,
-    this.warningLevel = "";
+    this.warningLevel = "happy";
   }
 
   //death check --
@@ -42,6 +42,8 @@ export class Tamagotchi {
 
   feed() {
     this.foodLevel = 10;
+    this.warningLevel = "happy";
+
   }
 
   //bathroom--
@@ -53,6 +55,7 @@ export class Tamagotchi {
 
   clean() {
     this.poopLevel = 10;
+    this.warningLevel = "happy";
   }
 
   //love--
@@ -65,6 +68,7 @@ export class Tamagotchi {
 
   love() {
     this.loveLevel = 10;
+    this.warningLevel = "happy";
   }
 
   //rest--
@@ -88,6 +92,7 @@ export class Tamagotchi {
 
   rest() {
     this.restLevel = 10;
+    this.warningLevel = "happy";
   }
 
   setEvolve() {

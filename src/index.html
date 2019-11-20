@@ -4,18 +4,6 @@
   <title>Gamatochi</title>
 </head>
 <body>
-
-
-  <div class="container">
-    <h1>Get Weather Conditions From Anywhere!</h1>
-    <label for="animal">Enter an animal:</label>
-    <input id="animal" type="text">
-    <button class="btn-success" id="cartoonAnimal">Get Animal</button>
-    <div class="errors"></div>
-    <div class="showImage"></div>
-
-
-
   <form class="form">
     <div class="jumbotron">
       <div class="container">
@@ -28,7 +16,9 @@
       <div class="row">
         <div class="col-md-4">
           <label>Give your GamaTochi a name:</label>
-          <input id="name" class="form-control" type="text" name="name" placeholder="Bob">
+          <input id="name" class="form-control" type="text" name="name">
+          <label for="animal">Enter an animal:</label>
+          <input id="animal" type="text" class="form-control">
         </div>
       </div>
       <button type="submit" class="btn btn-outline-primary" value="start">Let's Grow!</button>
@@ -36,13 +26,17 @@
   </form>
   <div class="container gameBoard">
     <h2 class="gamatochiName"></h2>
+    <div class="speech-bubble">
     <h4 id="warnings"></h4>
+  </div>
+    <div class="errors"></div>
+    <div class="showImage"></div>
     <div class="row">
       <div class="card col-md-3 bg-warning text-white">
         <div class="card-header">
           <h2>Hunger Level</h2>
         </div>
-        <div class="card-body">
+        <div class="card-body food">
           <div class="rect10"></div>
           <div class="rect8"></div>
           <div class="rect6"></div>
@@ -56,7 +50,12 @@
         <div class="card-header">
           <h2>Clean Level</h2>
         </div>
-        <div class="card-body">
+        <div class="card-body poop">
+          <div class="rect10"></div>
+          <div class="rect8"></div>
+          <div class="rect6"></div>
+          <div class="rect4"></div>
+          <div class="rect2"></div>
           <h3 class="card-text" id="poopScore"></h3>
           <button type="button" id="clean" class="btn btn-light">Clean</button>
         </div>
@@ -65,16 +64,26 @@
         <div class="card-header">
           <h2>Love Level</h2>
         </div>
-        <div class="card-body">
+        <div class="card-body love">
+          <div class="rect10"></div>
+          <div class="rect8"></div>
+          <div class="rect6"></div>
+          <div class="rect4"></div>
+          <div class="rect2"></div>
           <h3 class="card-text" id="loveScore"></h3>
-          <button type="button" id="love" class="btn btn-light">Love</button>
+          <button type="button" id="love" class="btn btn-light" align="center">Love</button>
         </div>
       </div>
       <div class="card col-md-3 bg-primary text-white">
         <div class="card-header">
           <h2>Rest Level</h2>
         </div>
-        <div class="card-body">
+        <div class="card-body rest">
+          <div class="rect10"></div>
+          <div class="rect8"></div>
+          <div class="rect6"></div>
+          <div class="rect4"></div>
+          <div class="rect2"></div>
           <h3 class="card-text" id="restScore"></h3>
           <button type="button" id="rest" class="btn btn-light">Rest</button>
         </div>
